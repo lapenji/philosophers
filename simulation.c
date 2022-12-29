@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:53:58 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/29 16:20:45 by ltombell         ###   ########.fr       */
+/*   Updated: 2022/12/29 17:32:19 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	ft_free_n_quit(t_program *prg)
 		i++;
 	}
 	pthread_mutex_destroy(&prg->write);
+	pthread_mutex_destroy(&prg->eat_check);
 	free(prg->philos);
 	free(prg->forks);
 }
