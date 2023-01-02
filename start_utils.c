@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 12:31:46 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/29 16:21:02 by ltombell         ###   ########.fr       */
+/*   Updated: 2023/01/02 13:34:23 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_has_everyone_enough(t_program *prg)
 	count = 0;
 	while (i < prg->philo_nbr)
 	{
-		if (prg->philos[i].times_ate >= prg->max_meals - 1)
+		if (prg->philos[i].times_ate >= prg->max_meals)
 			count++;
 		i++;
 	}

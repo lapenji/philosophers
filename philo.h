@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:21:24 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/29 16:21:54 by ltombell         ###   ########.fr       */
+/*   Updated: 2023/01/02 14:43:19 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_program
 	pthread_mutex_t	eat_check;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	write;
+	pthread_mutex_t	checking;
 	t_philo			*philos;
 }	t_program;
 
@@ -60,5 +61,8 @@ void	ft_start_threads(t_program *prg);
 void	ft_fill_prg(t_program *prg, int argc, char **argv);
 void	ft_start_mutexes(t_program *prg);
 void	lone_philo(t_program *prg);
+int		choose_fork_a(int left, int right);
+int		choose_fork_b(int right, int left);
+void	ft_time_to_die(t_program *prg, int i);
 
 #endif

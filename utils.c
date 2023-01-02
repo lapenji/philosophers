@@ -6,7 +6,7 @@
 /*   By: ltombell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 16:21:11 by ltombell          #+#    #+#             */
-/*   Updated: 2022/12/29 16:21:11 by ltombell         ###   ########.fr       */
+/*   Updated: 2023/01/02 13:55:42 by ltombell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,13 @@ void	ft_usleep(int howlong)
 
 void	ft_unlock_print_lock(t_program *prg, int i, char *message)
 {
+	int	tmp;
+
+	pthread_mutex_lock(&prg->eat_check);
+	tmp = prg->die_end;
+	pthread_mutex_unlock(&prg->eat_check);
 	pthread_mutex_lock(&prg->write);
-	if (prg->die_end == 0)
+	if (tmp == 0)
 		printf("%ld	%d %s\n", get_current_time(prg->start_time), i + 1, message);
 	pthread_mutex_unlock(&prg->write);
 }
